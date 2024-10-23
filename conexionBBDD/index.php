@@ -34,5 +34,5 @@ echo '<input type="submit" name="action" value="Guardar"></input>';
 if (isset($conn)) {
     mysqli_close($conn); // Cierra la conexión con la base de datos.
 }
-
+include_once('creacionBibliotecas.php');
 ?>
