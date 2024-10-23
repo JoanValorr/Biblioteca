@@ -14,7 +14,7 @@ $consultaSelect = 'SELECT * FROM library';
 $resultadoSelect = mysqli_query($conn, $consultaSelect);
 
 echo '<table>';
-echo '<tr><th>ID</th><th>Name</th><th>Address</th><th>phone</th></tr>';
+echo '<tr><th>ID</th><th>Name</th><th>Address</th><th>phone</th><th>Actions</th></tr>';
 
 while ($row = mysqli_fetch_array($resultadoSelect)) {
     $id = $row['id'];
