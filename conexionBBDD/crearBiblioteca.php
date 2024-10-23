@@ -1,7 +1,6 @@
 
 <?php
 include_once('baseDatos.php');
-include_once('crearBibliotecas.php');
 
 // Recupera los datos enviados por el formulario
 $name = $_POST['name'];
