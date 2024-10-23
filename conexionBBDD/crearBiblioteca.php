@@ -14,7 +14,7 @@ if (empty($name) || empty($address) || empty($phone)) {
     echo "<br><br><a href='index.php'>Volver</a>";
     return;
 }
-$query = "INSERT INTO user (name, address, phone) VALUES ('$name', '$address', '$phone')";
+$query = "INSERT INTO library (name, address, phone) VALUES ('$name', '$address', '$phone')";
 $result = mysqli_query($conn, $query);
 if ($result) {
     header('Location: index.php');
