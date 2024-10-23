@@ -9,6 +9,7 @@ body {
 h1 {
     text-align: center;
     color: #333;
+    margin-bottom: 20px;
 }
 
 /* Estilos para la tabla */
@@ -39,10 +40,20 @@ th {
     text-align: center;
 }
 
-a{
-    text-decoration: none;
-    color: #000;
-    border-radius: 10px;
-    padding: 10px;
-    background: linear-gradient(#cccccc, #9c9c9c);
+/* Botón Guardar */
+input[type="submit"] {
+    background-color: #008CBA; /* Azul */
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    margin: 0 auto; /* Centra el botón */
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #007bb5; /* Color más oscuro al pasar el mouse */
 }
