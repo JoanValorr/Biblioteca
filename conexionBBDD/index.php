@@ -14,7 +14,8 @@ $consultaSelect = 'SELECT * FROM book';
 $resultadoSelect = mysqli_query($conn, $consultaSelect);
 
 echo '<table>';
-echo '<tr><th>ID</th><th>Title</th><th>Author</th><th>ISBN</th><th>Language</th><th>id_library</th></tr>';
+echo '<tr><th>ID</th>
+<th>Title</th><th>Author</th><th>ISBN</th><th>Language</th><th>id_library</th></tr>';
 
 while ($row = mysqli_fetch_array($resultadoSelect)) {
     $id = $row['id'];
