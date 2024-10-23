@@ -9,7 +9,7 @@ $phone = $_POST['phone'];
 
 // Asegúrate de que los campos no estén vacíos
 
-if (empty($nombre) || empty($apellidos) || empty($edad)) {
+if (empty($name) || empty($address) || empty($phone)) {
     echo "<br>Error: Todos los campos (name, address,phone) deben ser rellenados.";
     echo "<br><br><a href='index.php'>Volver</a>";
     return;
