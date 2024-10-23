@@ -23,7 +23,7 @@ while ($row = mysqli_fetch_array($resultadoSelect)) {
     echo '<td>' . $row['name'] . '</td>';
     echo '<td>' . $row['address'] . '</td>';
     echo '<td>' . $row['phone'] . '</td>';
-    echo '<td>' . '<input type="submit" action="button" value="Acceder">' . '</td>';
+    echo '<td>' . '<input type="submit" action="button" value="Acceder">' . '</td>'; //Filtrar por id para que te vaya a la biblioteca concreta
     echo '</tr>';
 }
 
