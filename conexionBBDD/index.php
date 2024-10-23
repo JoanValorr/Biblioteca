@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset="UTF-8"></meta>
-        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="../css/styles.css">
     </head>
 
 <?php
