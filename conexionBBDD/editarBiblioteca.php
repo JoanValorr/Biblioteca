@@ -41,16 +41,7 @@ if (isset($_POST['id'])) {
 if (isset($conn)) {
     mysqli_close($conn); // Cierra la conexión con la base de datos
 }
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Creació de la Biblioteca</title>
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
-<body>
-    
+?>   
     <h1>Editar Biblioteca</h1>
     <form method="post" action="modificarBiblioteca.php">
         <label for="name">Nom de la Biblioteca: </label><input type="text" name="name"><br><br>
