@@ -41,18 +41,22 @@ if (isset($_POST['id'])) {
 if (isset($conn)) {
     mysqli_close($conn); // Cierra la conexión con la base de datos
 }
-
-echo '<form action="borrarBiblioteca.php" method="POST">
-    <input type="hidden" name="id" value="' . $id . '">
-    <input type="submit" value="Borrar">
-</form>'
 ?>
-<?php
-echo '<form action="editarBiblioteca.php" method="POST">
-<input type="hidden" name="id" value="' . $id . '">
-<input type="submit" value="Editar">
-</form>'
-?>
-
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Creació de la Biblioteca</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    
+    <h1>Editar Biblioteca</h1>
+    <form method="post" action="modificarBiblioteca.php">
+        <label for="name">Nom de la Biblioteca: </label><input type="text" name="name"><br><br>
+        <label for="address">Address: </label><input type="text" name="address"><br><br>
+        <label for="phone">Número de telèfon: </label><input type="number" name="phone"><br><br>
+        <input type="submit" value="Modificar"> 
+    </form>
 </body>
 </html>

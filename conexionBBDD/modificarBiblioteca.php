@@ -3,6 +3,7 @@
 include_once('baseDatos.php');
 
 // Recupera los datos del formulario
+
 $id = $_POST['id'];
 $name = $_POST['name'];
 $address = $_POST['address'];
