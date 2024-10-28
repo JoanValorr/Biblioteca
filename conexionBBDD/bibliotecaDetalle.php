@@ -24,9 +24,8 @@ if (isset($_POST['id'])) {
 
     // Muestra los detalles de la biblioteca
     if ($row = mysqli_fetch_array($resultadoDetalle)) {
-        echo '<h2>Detalles de la Biblioteca</h2>';
+        echo '<h2>Detalles de la ' . $row['name'] . '</h2>';
         echo '<p>ID: ' . $row['id'] . '</p>';
-        echo '<p>Nombre: ' . $row['name'] . '</p>';
         echo '<p>Dirección: ' . $row['address'] . '</p>';
         echo '<p>Teléfono: ' . $row['phone'] . '</p>';
     } else {
