@@ -56,6 +56,7 @@ if (isset($conn)) {
         <label for="name">Nom de la Biblioteca: </label><input type="text" name="name"><br><br>
         <label for="address">Address: </label><input type="text" name="address"><br><br>
         <label for="phone">Número de telèfon: </label><input type="number" name="phone"><br><br>
+        <input type="hidden" name="id" value="<?php echo $_POST['id'];?>">
         <input type="submit" value="Modificar"> 
     </form>
 </body>
