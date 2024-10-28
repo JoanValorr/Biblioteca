@@ -1,9 +1,19 @@
 <?php
 
 include_once('baseDatos.php');
+?>
 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+<?php
+if (isset($_POST['id'])) {
+    $id = $_POST['id'];
 
     // Prepara la consulta para seleccionar los datos de la biblioteca específica
     $consultaDetalle = 'SELECT * FROM library WHERE id = ?';
@@ -31,3 +41,17 @@ if (isset($_GET['id'])) {
 if (isset($conn)) {
     mysqli_close($conn); // Cierra la conexión con la base de datos
 }
+?>
+<form action="borrarBiblioteca.php" method="POST">
+    <input type="hidden" name="id" value="' . $id . '">
+    <input type="submit" value="Borrar">
+</form>
+<form action="modificarBiblioteca.php" method="POST">
+    <input type="hidden" name="id" value="' . $id . '">
+    <input type="hidden" name="name" value="' . $name . '">
+    <input type="hidden" name="address" value="' . $address . '">
+    <input type="hidden" name="phone" value="' . $phone . '">
+    <input type="submit" value="Editar">
+</form>
+</body>
+</html>

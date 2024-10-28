@@ -29,7 +29,7 @@ $resultadoSelect = mysqli_query($conn, $consultaSelect);
         echo '<td>' . $row['address'] . '</td>';
         echo '<td>' . $row['phone'] . '</td>';
         echo '<td>
-                <form action="bibliotecaDetalle.php" method="GET">
+                <form action="bibliotecaDetalle.php" method="POST">
                     <input type="hidden" name="id" value="' . $id . '">
                     <input type="submit" value="Acceder">
                 </form>
