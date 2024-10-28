@@ -11,7 +11,7 @@ if (empty($id)) {
     return;
 }
 if (!empty($id)) {
-    echo '<h3>Estás borrando el usuario con id: ' . htmlspecialchars($id) . '</h3>';
+    echo '<h3>Estás borrando la biblioteca con id: ' . htmlspecialchars($id) . '</h3>';
     echo '<form action="" method="POST">';
     echo '<input type="hidden" name="id" value="' . htmlspecialchars($id) . '">';
     echo '<input type="hidden" name="action" value="Borrar">';

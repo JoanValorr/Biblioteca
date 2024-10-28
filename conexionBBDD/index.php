@@ -1,38 +1,46 @@
-<html>
-    <head>
-        <meta charset="UTF-8"></meta>
-        <link rel="stylesheet" href="../css/styles.css">
-    </head>
 
 <?php
 
-
 include_once('baseDatos.php');
-
 
 $consultaSelect = 'SELECT * FROM library';
 $resultadoSelect = mysqli_query($conn, $consultaSelect);
 
-echo '<table>';
-echo '<tr><th>ID</th><th>Name</th><th>Address</th><th>phone</th><th>Actions</th></tr>';
-
-while ($row = mysqli_fetch_array($resultadoSelect)) {
-    $id = $row['id'];
-    echo '<tr>';
-    echo '<td>' . $row['id'] . '</td>';
-    echo '<td>' . $row['name'] . '</td>';
-    echo '<td>' . $row['address'] . '</td>';
-    echo '<td>' . $row['phone'] . '</td>';
-    echo '<td>' . '<input type="submit" action="button" value="Acceder">' . '</td>'; //Filtrar por id para que te vaya a la biblioteca concreta
-    echo '</tr>';
-}
-
-echo '</table>'; // Cierra la tabla HTML.
-
-echo '<input type="submit" name="action" value="Guardar"></input>';
-
-if (isset($conn)) {
-    mysqli_close($conn); // Cierra la conexión con la base de datos.
-}
-include_once('creacionBibliotecas.php');
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Tabla para mostrar los datos -->
+    <table>
+        <tr><th>ID</th><th>Name</th><th>Address</th><th>Phone</th><th>Actions</th></tr>
+<?php
+    // Iterar sobre los resultados y mostrar cada fila en la tabla
+    while ($row = mysqli_fetch_array($resultadoSelect)) {
+        $id = $row['id'];
+        echo '<tr>';
+        echo '<td>' . $row['id'] . '</td>';
+        echo '<td>' . $row['name'] . '</td>';
+        echo '<td>' . $row['address'] . '</td>';
+        echo '<td>' . $row['phone'] . '</td>';
+        echo '<td>
+                <form action="bibliotecaDetalle.php" method="GET">
+                    <input type="hidden" name="id" value="' . $id . '">
+                    <input type="submit" value="Acceder">
+                </form>
+            </td>';
+        echo '</tr>';
+    }
+?>
+    </table>
+<?php
+    include_once('creacionBibliotecas.php');
+?>
+
+</body>
+</html>
