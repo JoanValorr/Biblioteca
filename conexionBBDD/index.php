@@ -21,7 +21,7 @@ $resultadoSelect = mysqli_query($conn, $consultaSelect);
         <tr><th>ID</th><th>Name</th><th>Address</th><th>Phone</th><th>Actions</th></tr>
 <?php
     // Iterar sobre los resultados y mostrar cada fila en la tabla
-    while ($row = mysqli_fetch_array($resultadoSelect)) {
+while ($row = mysqli_fetch_array($resultadoSelect)) {
         $id = $row['id'];
         echo '<tr>';
         echo '<td>' . $row['id'] . '</td>';
@@ -35,7 +35,7 @@ $resultadoSelect = mysqli_query($conn, $consultaSelect);
                 </form>
             </td>';
         echo '</tr>';
-    }
+}
 ?>
     </table>
 <?php
