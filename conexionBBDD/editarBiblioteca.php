@@ -50,5 +50,10 @@ if (isset($conn)) {
         <input type="hidden" name="id" value="<?php echo $_POST['id'];?>">
         <input type="submit" value="Modificar"> 
     </form>
+<?php
+echo '<form action="index.php" method="POST">
+<input type="submit" value="Volver">
+</form>'
+?>
 </body>
 </html>

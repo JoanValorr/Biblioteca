@@ -53,6 +53,12 @@ echo '<form action="editarBiblioteca.php" method="POST">
 <input type="submit" value="Editar">
 </form>'
 ?>
+<?php
+echo '<form action="index.php" method="POST">
+<input type="submit" value="Volver">
+</form>'
+?>
+
 
 </body>
 </html>
