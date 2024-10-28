@@ -15,7 +15,7 @@ $resultadoSelect = mysqli_query($conn, $consultaSelect);
 
 echo '<table>';
 echo '<tr><th>ID</th>
-<th>Title</th><th>Author</th><th>ISBN</th><th>Language</th><th>id_library</th></tr>';
+<th>Title</th><th>Author</th><th>ISBN</th><th>Language</th><th>Nombre Biblioteca</th></tr>';
 
 while ($row = mysqli_fetch_array($resultadoSelect)) {
     $id = $row['id'];
@@ -26,7 +26,12 @@ while ($row = mysqli_fetch_array($resultadoSelect)) {
     echo '<td>' . $row['isbn'] . '</td>';
     echo '<td>' . $row['language'] . '</td>';
     echo '<td>' . $row['id_library'] . '</td>';
-    echo '<td>' . '<input type="submit" action="button" value="Acceder">' . '</td>';
+    echo '<td>
+                <form action="detalleLibro.php" method="POST">
+                    <input type="hidden" name="id" value="' . $id . '">
+                    <input type="submit" value="Acceder">
+                </form>
+            </td>';
     echo '</tr>';
 }
 
