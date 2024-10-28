@@ -41,17 +41,21 @@ if (isset($_POST['id'])) {
 if (isset($conn)) {
     mysqli_close($conn); // Cierra la conexión con la base de datos
 }
-?>
-<form action="borrarBiblioteca.php" method="POST">
+
+echo '<form action="borrarBiblioteca.php" method="POST">
     <input type="hidden" name="id" value="' . $id . '">
     <input type="submit" value="Borrar">
-</form>
-<form action="modificarBiblioteca.php" method="POST">
-    <input type="hidden" name="id" value="' . $id . '">
-    <input type="hidden" name="name" value="' . $name . '">
-    <input type="hidden" name="address" value="' . $address . '">
-    <input type="hidden" name="phone" value="' . $phone . '">
-    <input type="submit" value="Editar">
-</form>
+</form>'
+?>
+<?php
+echo '<form action="modificarBiblioteca.php" method="POST">
+<input type="hidden" name="id" value="' . $id . '">
+<input type="hidden" name="name" value="' . $name . '">
+<input type="hidden" name="address" value="' . $address . '">
+<input type="hidden" name="phone" value="' . $phone . '">
+<input type="submit" value="Editar">
+</form>'
+?>
+
 </body>
 </html>
