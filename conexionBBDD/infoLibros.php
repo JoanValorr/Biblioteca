@@ -37,8 +37,6 @@ while ($row = mysqli_fetch_array($resultadoSelect)) {
 
 echo '</table>'; // Cierra la tabla HTML.
 
-echo '<input type="submit" name="action" value="Guardar"></input>';
-
 if (isset($conn)) {
     mysqli_close($conn); // Cierra la conexión con la base de datos.
 }
