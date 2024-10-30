@@ -14,7 +14,7 @@ $tituloLibro = mysqli_fetch_assoc($libro);
     <head>
         <meta charset="UTF-8">
         <title>Libros</title>
-        <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="../css/borrarLibros.css">
     </head>
     <body>
         <h2>Estás borrando el libro "<?php echo $tituloLibro['title']; ?>", ¿estas seguro de que quieres continuar?</h2>
