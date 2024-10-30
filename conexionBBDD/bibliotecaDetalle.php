@@ -57,5 +57,8 @@ echo '<form action="indexBibliotecas.php" method="POST">
 <input type="submit" value="Volver">
 </form>'
 ?>
+<?php
+    include_once 'mostrarLibros.php';
+?>
 </body>
 </html>

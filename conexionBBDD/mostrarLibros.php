@@ -1,44 +1,42 @@
-<html>
-    <head>
-        <meta charset="UTF-8"></meta>
-        <link rel="stylesheet" href="../css/styles.css">
-    </head>
-
 <?php
-
 
 include_once 'baseDatos.php';
 
+echo $id;
+$info_library = "SELECT * FROM library WHERE id = '" . $_POST['id'] . "'";
+$result_library = mysqli_query($conn, $info_library);
+$libraries = mysqli_fetch_assoc($result_library);
 
-$consultaSelect = 'SELECT * FROM book';
-$resultadoSelect = mysqli_query($conn, $consultaSelect);
-
-echo '<table>';
-echo '<tr><th>ID</th>
-<th>Title</th><th>Author</th><th>ISBN</th><th>Language</th><th>Nombre Biblioteca</th></tr>';
-
-while ($row = mysqli_fetch_array($resultadoSelect)) {
-    $id = $row['id'];
-    echo '<tr>';
-    echo '<td>' . $row['id'] . '</td>';
-    echo '<td>' . $row['title'] . '</td>';
-    echo '<td>' . $row['author'] . '</td>';
-    echo '<td>' . $row['isbn'] . '</td>';
-    echo '<td>' . $row['language'] . '</td>';
-    echo '<td>' . $row['id_library'] . '</td>';
-    echo '<td>
-                <form action="detalleLibro.php" method="POST">
-                    <input type="hidden" name="id" value="' . $id . '">
-                    <input type="submit" value="Acceder">
-                </form>
-            </td>';
-    echo '</tr>';
-}
-
-echo '</table>'; // Cierra la tabla HTML.
-
-if (isset($conn)) {
-    mysqli_close($conn); // Cierra la conexión con la base de datos.
-}
-include_once 'creacionLibros.php';
 ?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/libraries.css">
+    <title>Bibliotecas</title>
+</head>
+<body>
+    <header class="infoLibraryContainer">
+        <div class="divInfoLibrary">
+            <li class="infoLibrary">
+                <ul class="libraryRow"><b>Nombre</b> <?php echo $libraries['name']?></ul>
+                <ul class="libraryRow"><b>Dirección</b> <?php echo $libraries['address']?></ul>
+                <ul class="libraryRow"><b>Teléfono</b> <?php echo $libraries['phone']?></ul>
+            </li>
+        </div>
+    </header>
+
+    <div class="divTableLibrary">
+        <table>
+            <tr>
+                <th class="tableHeaderLeft">TÍTULO</th>
+                <th>AUTOR</th>
+                <th>ISBN</th>
+                <th class="tableHeaderRight">ACCIONES</th>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
