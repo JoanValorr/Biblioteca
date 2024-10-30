@@ -1,4 +1,3 @@
-
 <?php
 
 include_once('baseDatos.php');
@@ -19,24 +18,22 @@ $resultadoSelect = mysqli_query($conn, $consultaSelect);
     <!-- Tabla para mostrar los datos -->
     <table>
         <tr><th>ID</th><th>Name</th><th>Address</th><th>Phone</th><th>Actions</th></tr>
-<?php
-    // Iterar sobre los resultados y mostrar cada fila en la tabla
-while ($row = mysqli_fetch_array($resultadoSelect)) {
-        $id = $row['id'];
-        echo '<tr>';
-        echo '<td>' . $row['id'] . '</td>';
-        echo '<td>' . $row['name'] . '</td>';
-        echo '<td>' . $row['address'] . '</td>';
-        echo '<td>' . $row['phone'] . '</td>';
-        echo '<td>
-                <form action="bibliotecaDetalle.php" method="POST">
-                    <input type="hidden" name="id" value="' . $id . '">
-                    <input type="submit" value="Acceder">
-                </form>
-            </td>';
-        echo '</tr>';
-}
-?>
+
+<?php while ($row = mysqli_fetch_array($resultadoSelect)) : ?>
+    <?php $id = $row['id']; ?>
+    <tr>
+        <td><?php echo $row['id']; ?></td>
+        <td><?php echo $row['name']; ?></td>
+        <td><?php echo $row['address']; ?></td>
+        <td><?php echo $row['phone']; ?></td>
+        <td>
+            <form action="bibliotecaDetalle.php" method="POST">
+                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                <input type="submit" value="Acceder">
+            </form>
+        </td>
+    </tr>
+<?php endwhile; ?>
     </table>
 <?php
     include_once('creacionBibliotecas.php');
