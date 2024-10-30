@@ -1,31 +1,37 @@
 <?php
 
-include_once('baseDatos.php');
+include_once 'baseDatos.php';
 
-// Recupera el ID del formulario
-$id = $_POST['id'];
 
-if (empty($id)) {
-    echo "<br>Error: Campo (id) deben ser rellenado.";
-    echo "<br><br><a href='infoLibros.php'>Volver</a>";
-    return;
-}
-if (!empty($id)) {
-    echo '<h3>Estás borrando el Libro con id: ' . htmlspecialchars($id) . '</h3>';
-    echo '<form action="" method="POST">';
-    echo '<input type="hidden" name="id" value="' . htmlspecialchars($id) . '">';
-    echo '<input type="hidden" name="action" value="Borrar">';
-    echo '<input class="confirmButton" type="submit" name="confirm"value="Borrar">';
-    echo '</form>';
-    echo '<a href="index.php">Volver</a>';
-    if (isset($_POST['confirm'])) {
-        $query = "DELETE FROM book WHERE id='$id'";
-        $delete_result = mysqli_query($conn, $query);
-        if ($delete_result) {
-            echo 'Libro eliminado correctamente <br/>';
-            header('Location: infoLibros.php');
-        } else {
-            echo 'Error al eliminar Libro: ' . mysqli_error($conn) . '<br/>';
+$datosLibro = "SELECT * FROM book WHERE id = '" . $_POST['id'] . "'";
+$libro = mysqli_query($conn, $datosLibro);
+$tituloLibro = mysqli_fetch_assoc($libro);
+
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Libros</title>
+        <link rel="stylesheet" href="../css/styles.css">
+    </head>
+    <body>
+        <h2>Estás borrando el libro "<?php echo $tituloLibro['title']; ?>", ¿estas seguro de que quieres continuar?</h2>
+        <div class="confirmDeleteContainer">
+            <a href="indexLibros.php">Volver</a>
+            <form action="" method="POST">
+                <input type="hidden" name="id" value="<?php echo $_POST['id']; ?>">
+                <button type="submit" name="borrarLibro" class="confirmDelete">Eliminar</button>
+            </form>
+        </div>
+        <?php
+        if (isset($_POST['borrarLibro'])) {
+            $delete_query = "DELETE FROM book WHERE id = '" . $_POST['id'] . "'";
+            $delete_result = mysqli_query($conn, $delete_query);
+            header('Location: indexLibros.php');
         }
-    }
-}
+        ?>
+        </div>
+    </body>
+</html>
