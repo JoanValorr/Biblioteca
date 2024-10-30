@@ -57,7 +57,5 @@ echo '<form action="index.php" method="POST">
 <input type="submit" value="Volver">
 </form>'
 ?>
-
-
 </body>
 </html>
