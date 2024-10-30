@@ -43,11 +43,12 @@ $resultadoSelect = mysqli_query($conn, $consultaSelect);
                     </form>
                 </td>
             </tr>
-        <?php endwhile; ?>
 
-        <?php
-        include_once 'creacionLibros.php';
-        ?>
+        <?php endwhile; ?>
+    </table>
+    <?php
+    include_once 'creacionLibros.php';
+    ?>
 
 </body>
 
