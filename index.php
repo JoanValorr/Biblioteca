@@ -10,8 +10,8 @@
     <h1>Gestión Bibliotecas</h1>
     <nav>
         <ul>
-            <li><a href="conexionBBDD/index.php">Ver Bibliotecas</a></li>
-            <li><a href="conexionBBDD/infoLibros.php">Ver Libros</a></li>
+            <li><a href="conexionBBDD/indexBibliotecas.php">Ver Bibliotecas</a></li>
+            <li><a href="conexionBBDD/indexLibros.php">Ver Libros</a></li>
         </ul>
     </nav>
     <!-- Formulario de Búsqueda -->
