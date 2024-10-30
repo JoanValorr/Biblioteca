@@ -1,6 +1,6 @@
 <?php
 
-include_once('baseDatos.php');
+include_once 'baseDatos.php' ;
 
 $consultaSelect = 'SELECT * FROM library';
 $resultadoSelect = mysqli_query($conn, $consultaSelect);
@@ -36,7 +36,7 @@ $resultadoSelect = mysqli_query($conn, $consultaSelect);
 <?php endwhile; ?>
     </table>
 <?php
-    include_once('creacionBibliotecas.php');
+    include_once 'creacionBibliotecas.php';
 ?>
 
 </body>
