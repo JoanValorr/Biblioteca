@@ -40,5 +40,5 @@ echo '</table>'; // Cierra la tabla HTML.
 if (isset($conn)) {
     mysqli_close($conn); // Cierra la conexión con la base de datos.
 }
-include_once('creacionLibros.php');
+include_once 'creacionLibros.php';
 ?>
