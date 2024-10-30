@@ -1,31 +1,37 @@
+
 <?php
 
 include_once 'baseDatos.php';
 
-// Recupera el ID del formulario
-$id = $_POST['id'];
+$library_datos = "SELECT * FROM library WHERE id = '" . $_POST['id'] . "'";
+$library_resultado = mysqli_query($conn, $library_datos);
+$library_array = mysqli_fetch_assoc($library_resultado);
 
-if (empty($id)) {
-    echo "<br>Error: Campo (id) deben ser rellenado.";
-    echo "<br><br><a href='indexBibliotecas.php'>Volver</a>";
-    return;
-}
-if (!empty($id)) {
-    echo '<h3>Estás borrando la biblioteca con id: ' . htmlspecialchars($id) . '</h3>';
-    echo '<form action="" method="POST">';
-    echo '<input type="hidden" name="id" value="' . htmlspecialchars($id) . '">';
-    echo '<input type="hidden" name="action" value="Borrar">';
-    echo '<input class="confirmButton" type="submit" name="confirm"value="Borrar">';
-    echo '</form>';
-    echo '<a href="indexBibliotecas.php">Volver</a>';
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Bibliotecas</title>
+</head>
+<body>
+<h2>Estás borrando la biblioteca "<?php echo $library_array['name']; ?>", ¿estas seguro de que quieres continuar?</h2>
+    <div>
+        <a href="indexBibliotecas.php">Volver</a>
+        <form action="" method="POST">
+            <input type="hidden" name="id" value="<?php echo $_POST['id'] ?>">
+            <button type="submit" name="confirm" class="confirmDelete">Eliminar</button>
+        </form>
+    </div>
+    <?php
     if (isset($_POST['confirm'])) {
-        $query = "DELETE FROM library WHERE id='$id'";
-        $delete_result = mysqli_query($conn, $query);
-        if ($delete_result) {
-            echo 'Biblioteca eliminado correctamente <br/>';
-            header('Location: indexBibliotecas.php');
-        } else {
-            echo 'Error al eliminar usuario: ' . mysqli_error($conn) . '<br/>';
-        }
+        $queryDelete = "DELETE FROM library WHERE id = '" . $_POST['id'] . "'";
+        $resultDelete = mysqli_query($conn, $queryDelete);
+        header('Location: indexBibliotecas.php');
     }
-}
+    ?>
+</body>
+</html>

@@ -1,59 +1,46 @@
 <?php
 
 include_once 'baseDatos.php';
+
+$libarary_datos = "SELECT * FROM library WHERE id = '" . $_POST['id'] . "'";
+$library_resultado = mysqli_query($conn, $libarary_datos);
+$library_array = mysqli_fetch_assoc($library_resultado);
+
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styles.css">
-    <title>Document</title>
+    <title>Bibliotecas</title>
 </head>
 <body>
-<?php
-if (isset($_POST['id'])) {
-    $id = $_POST['id'];
-
-    // Prepara la consulta para seleccionar los datos de la biblioteca específica
-    $consultaDetalle = 'SELECT * FROM library WHERE id = ?';
-    $stmt = mysqli_prepare($conn, $consultaDetalle);
-    mysqli_stmt_bind_param($stmt, 'i', $id);
-    mysqli_stmt_execute($stmt);
-    $resultadoDetalle = mysqli_stmt_get_result($stmt);
-
-    // Muestra los detalles de la biblioteca
-    if ($row = mysqli_fetch_array($resultadoDetalle)) {
-        echo '<h2>Detalles de la Biblioteca</h2>';
-        echo '<p>ID: ' . $row['id'] . '</p>';
-        echo '<p>Nombre: ' . $row['name'] . '</p>';
-        echo '<p>Dirección: ' . $row['address'] . '</p>';
-        echo '<p>Teléfono: ' . $row['phone'] . '</p>';
-    } else {
-        echo '<p>No se encontraron detalles para esta biblioteca.</p>';
-    }
-
-    mysqli_stmt_close($stmt);
-} else {
-    echo '<p>No se recibió un ID de biblioteca válido.</p>';
-}
-
-if (isset($conn)) {
-    mysqli_close($conn); // Cierra la conexión con la base de datos
-}
-?>   
-    <h1>Editar Biblioteca</h1>
-    <form method="post" action="modificarBiblioteca.php">
-        <label for="name">Nom de la Biblioteca: </label><input type="text" name="name"><br><br>
-        <label for="address">Address: </label><input type="text" name="address"><br><br>
-        <label for="phone">Número de telèfon: </label><input type="number" name="phone"><br><br>
-        <input type="hidden" name="id" value="<?php echo $_POST['id'];?>">
-        <input type="submit" value="Modificar"> 
-    </form>
-<?php
-echo '<form action="indexBibliotecas.php" method="POST">
-<input type="submit" value="Volver">
-</form>'
-?>
+    <div>
+        <form action="" method="POST">
+            <h2>Editando la biblioteca: <?php echo $library_array['name']; ?></h2>
+            <input type="hidden" name="id" value="<?php echo $_POST['id']; ?>">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" value="<?php echo $library_array['name']; ?>" required>
+            <label for="address">Dirección:</label>
+            <input type="text" id="address" name="address" value="<?php echo $library_array['address']; ?>" required>
+            <label for="phone">Teléfono:</label>
+            <input type="text" id="phone" name="phone" value="<?php echo $library_array['phone']; ?>" required>
+            <input type="submit" value="Actualiza" name="updateLibrary">
+            <a href="indexBibliotecas.php">Volver</a>
+        </form>
+    </div>
+    <?php if (isset($_POST['updateLibrary'])) : ?>
+        <?php if (empty($_POST['name']) || empty($_POST['address']) || empty($_POST['phone'])) : ?>
+            <script>alert('Tienes que rellenar todos los campos')</script>
+        <?php else : ?>
+            <?php
+            $queryUpdate = "UPDATE Library SET name = '" . $_POST['name'] . "', address = '" . $_POST['address'] . "', phone = '" . $_POST['phone'] . "' WHERE id = '" . $_POST['id'] . "'";
+            $resultUpdate = mysqli_query($conn, $queryUpdate);
+            header('Location: indexBibliotecas.php');
+            ?>
+        <?php endif; ?>
+    <?php endif; ?>
 </body>
 </html>
