@@ -1,6 +1,6 @@
 <?php
 
-include_once('baseDatos.php');
+include_once 'baseDatos.php';
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +51,7 @@ if (isset($conn)) {
         <input type="submit" value="Modificar"> 
     </form>
 <?php
-echo '<form action="index.php" method="POST">
+echo '<form action="indexBibliotecas.php" method="POST">
 <input type="submit" value="Volver">
 </form>'
 ?>

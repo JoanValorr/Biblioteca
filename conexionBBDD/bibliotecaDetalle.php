@@ -1,6 +1,6 @@
 <?php
 
-include_once('baseDatos.php');
+include_once 'baseDatos.php';
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +53,7 @@ echo '<form action="editarBiblioteca.php" method="POST">
 </form>'
 ?>
 <?php
-echo '<form action="index.php" method="POST">
+echo '<form action="indexBibliotecas.php" method="POST">
 <input type="submit" value="Volver">
 </form>'
 ?>

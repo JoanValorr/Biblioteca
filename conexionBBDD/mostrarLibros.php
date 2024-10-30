@@ -7,7 +7,7 @@
 <?php
 
 
-include_once('baseDatos.php');
+include_once 'baseDatos.php';
 
 
 $consultaSelect = 'SELECT * FROM book';
@@ -40,5 +40,5 @@ echo '</table>'; // Cierra la tabla HTML.
 if (isset($conn)) {
     mysqli_close($conn); // Cierra la conexión con la base de datos.
 }
-include_once('creacionLibros.php');
+include_once 'creacionLibros.php';
 ?>

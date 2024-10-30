@@ -1,6 +1,6 @@
 <?php
 
-include_once('baseDatos.php');
+include_once 'baseDatos.php';
 
 // Recupera los datos del formulario
 
@@ -13,7 +13,7 @@ $phone = $_POST['phone'];
 // Comprueba que todos los campos están rellenos
 if (empty($id)  || empty($name) || empty($address) || empty($phone)) {
     echo "<br>Error: Todos los campos (name, address, phone) deben ser rellenados.";
-    echo "<br><br><a href='index.php'>Volver</a>";
+    echo "<br><br><a href='indexBibliotecas.php'>Volver</a>";
     return;
 }
 
@@ -32,5 +32,5 @@ if (!empty($id) && !empty($name) && !empty($address) && !empty($phone)) {
 }
 
 // Redirige de vuelta a index.php
-header('Location: index.php');
+header('Location: indexBibliotecas.php');
 exit();
