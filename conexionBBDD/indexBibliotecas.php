@@ -20,7 +20,6 @@ $resultadoSelect = mysqli_query($conn, $consultaSelect);
         <tr><th>ID</th><th>Name</th><th>Address</th><th>Phone</th><th>Actions</th></tr>
 
 <?php while ($row = mysqli_fetch_array($resultadoSelect)) : ?>
-    <?php $id = $row['id']; ?>
     <tr>
         <td><?php echo $row['id']; ?></td>
         <td><?php echo $row['name']; ?></td>

@@ -1,64 +1,70 @@
 <?php
 
 include_once 'baseDatos.php';
-?>
 
+$id = $_POST['id'];
+
+$consultaDetalle = "SELECT * FROM library WHERE id = '$id'";
+$resultadoDetalle = mysqli_query($conn, $consultaDetalle);
+$array_detalle = mysqli_fetch_array($resultadoDetalle);
+
+$consultaLibro = "SELECT * FROM book WHERE id_library = '$id'";
+$resultadoLibro = mysqli_query($conn, $consultaLibro);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/styles.css">
-    <title>Document</title>
+    <title>Biblioteca</title>
 </head>
 <body>
-<?php
-if (isset($_POST['id'])) {
-    $id = $_POST['id'];
 
-    // Prepara la consulta para seleccionar los datos de la biblioteca específica
-    $consultaDetalle = 'SELECT * FROM library WHERE id = ?';
-    $stmt = mysqli_prepare($conn, $consultaDetalle);
-    mysqli_stmt_bind_param($stmt, 'i', $id);
-    mysqli_stmt_execute($stmt);
-    $resultadoDetalle = mysqli_stmt_get_result($stmt);
+    <h2>Detalles de la <?php echo $array_detalle['name']?></h2>
+    <p>ID: <?php echo $array_detalle['id']?></p>
+    <p>Direccion: <?php echo $array_detalle['address']?></p>
+    <p>Telefono<?php echo $array_detalle['phone']?></p>
 
-    // Muestra los detalles de la biblioteca
-    if ($row = mysqli_fetch_array($resultadoDetalle)) {
-        echo '<h2>Detalles de la ' . $row['name'] . '</h2>';
-        echo '<p>ID: ' . $row['id'] . '</p>';
-        echo '<p>Dirección: ' . $row['address'] . '</p>';
-        echo '<p>Teléfono: ' . $row['phone'] . '</p>';
-    } else {
-        echo '<p>No se encontraron detalles para esta biblioteca.</p>';
-    }
+    <form action="borrarBiblioteca.php" method="POST">
+        <input type="hidden" name="id" value="<?php echo $_POST['id'] ?>">
+        <input type="submit" value="Borrar">
+    </form>
+   
+    <form action="editarBiblioteca.php" method="POST">
+        <input type="hidden" name="id" value="<?php echo $_POST['id'] ?>">
+        <input type="submit" value="Editar">
+    </form>
 
-    mysqli_stmt_close($stmt);
-} else {
-    echo '<p>No se recibió un ID de biblioteca válido.</p>';
-}
+    <form action="indexBibliotecas.php" method="POST">
+        <input type="submit" value="Volver">
+    </form>
+    <table>
+        
+        <th>ID</th>
+        <th>Titulo</th>
+        <th>Autor</th>
+        <th>ISBN</th>
+        <th>Idioma</th>
+        <th>Biblioteca</th>
+        <th>Actions</th>
 
-if (isset($conn)) {
-    mysqli_close($conn); // Cierra la conexión con la base de datos
-}
-
-echo '<form action="borrarBiblioteca.php" method="POST">
-    <input type="hidden" name="id" value="' . $id . '">
-    <input type="submit" value="Borrar">
-</form>'
-?>
-<?php
-echo '<form action="editarBiblioteca.php" method="POST">
-<input type="hidden" name="id" value="' . $id . '">
-<input type="submit" value="Editar">
-</form>'
-?>
-<?php
-echo '<form action="indexBibliotecas.php" method="POST">
-<input type="submit" value="Volver">
-</form>'
-?>
-<?php
-    include_once 'mostrarLibros.php';
-?>
+<?php while ($row = mysqli_fetch_array($resultadoLibro)) : ?>
+    <tr>
+        <td><?php echo $row['id']; ?></td>
+        <td><?php echo $row['title']; ?></td>
+        <td><?php echo $row['author']; ?></td>
+        <td><?php echo $row['isbn']; ?></td>
+        <td><?php echo $row['language']; ?></td>
+        <td><?php echo $row['id_library']; ?></td>
+        <td>
+            <form action="detalleLibro.php" method="POST">
+                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                <input type="submit" value="Acceder">
+            </form>
+        </td>
+    </tr>
+<?php endwhile; ?>
+    </table>
 </body>
 </html>
