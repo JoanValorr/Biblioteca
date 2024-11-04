@@ -14,24 +14,24 @@ $tituloBiblioteca = mysqli_fetch_assoc($biblioteca);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/borrar.css">
     <title>Bibliotecas</title>
 </head>
 <body>
-<h2>Estás borrando la biblioteca "<?php echo $tituloBiblioteca['name']; ?>", ¿estas seguro de que quieres continuar?</h2>
-    <div>
-        <a href="indexBibliotecas.php">Volver</a>
+<h2>Estás borrando: "<?php echo $tituloBiblioteca['name']; ?>", ¿estas seguro de que quieres continuar?</h2>
+    <div class="confirmDeleteContainer">
+        <a class="btn" href="indexBibliotecas.php">Volver</a>
         <form action="" method="POST">
             <input type="hidden" name="id" value="<?php echo $_POST['id'] ?>">
-            <button type="submit" name="confirm">Eliminar</button>
+            <button type="submit" name="borrarbiblio" class="confirmDelete">Eliminar</button>
         </form>
     </div>
     <?php
-    if (isset($_POST['confirm'])) {
+    if (isset($_POST['borrarbiblio'])) {
         $queryDelete = "DELETE FROM library WHERE id = '" . $_POST['id'] . "'";
         $resultDelete = mysqli_query($conn, $queryDelete);
         header('Location: indexBibliotecas.php');
     }
-    ?>
+    ?>    
 </body>
 </html>
