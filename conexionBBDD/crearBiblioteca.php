@@ -21,7 +21,7 @@ $phone = $_POST['phone'];
     <?php if (empty($name) || empty($address) || empty($phone)) : ?>
         <h2>No has rellenado todos los campos.</h2>
         <div class="backContainer">
-            <a href="indexBibliotecas.php">Volver</a>
+            <a class="btn" href="indexBibliotecas.php">Volver</a>
         </div>
     <?php else : ?>
         <?php

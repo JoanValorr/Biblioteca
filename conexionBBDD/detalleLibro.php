@@ -27,16 +27,16 @@ $array_detalle = mysqli_fetch_array($resultadoDetalle);
 
     <form action="borrarLibro.php" method="POST">
         <input type="hidden" name="id" value="<?php echo $_POST['id'] ?>">
-        <input type="submit" value="Borrar">
+        <input class="btn" type="submit" value="Borrar">
     </form>
    
     <form action="editarLibro.php" method="POST">
         <input type="hidden" name="id" value="<?php echo $_POST['id'] ?>">
-        <input type="submit" value="Editar">
+        <input class="btn" type="submit" value="Editar">
     </form>
 
     <form action="indexLibros.php" method="POST">
-        <input type="submit" value="Volver">
+        <input class="btn" type="submit" value="Volver">
     </form>
     
 </body>

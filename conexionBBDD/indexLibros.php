@@ -44,12 +44,13 @@ $resultadoSelect = mysqli_query($conn, $consultaSelect);
                     <td>
                         <form action="detalleLibro.php" method="POST">
                             <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                            <input type="submit" value="Acceder">
+                            <input class="btn" type="submit" value="Acceder">
                         </form>
                     </td>
                 </tr>
             <?php endwhile; ?>
         </table>
+        <a class="btn" href="../index.php">Volver a pagina principal</a>
     </div>
 </body>
 </html>

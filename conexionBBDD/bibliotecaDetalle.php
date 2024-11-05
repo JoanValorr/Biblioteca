@@ -28,16 +28,16 @@ $resultadoLibro = mysqli_query($conn, $consultaLibro);
 
     <form action="borrarBiblioteca.php" method="POST">
         <input type="hidden" name="id" value="<?php echo $_POST['id'] ?>">
-        <input type="submit" value="Borrar">
+        <input class="btn" type="submit" value="Borrar">
     </form>
    
     <form action="editarBiblioteca.php" method="POST">
         <input type="hidden" name="id" value="<?php echo $_POST['id'] ?>">
-        <input type="submit" value="Editar">
+        <input class="btn" type="submit" value="Editar">
     </form>
 
     <form action="indexBibliotecas.php" method="POST">
-        <input type="submit" value="Volver">
+        <input class="btn" type="submit" value="Volver">
     </form>
     <table>
         

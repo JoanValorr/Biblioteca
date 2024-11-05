@@ -28,7 +28,7 @@ $library_array = mysqli_fetch_assoc($library_resultado);
             <label for="phone">Teléfono:</label>
             <input type="text" id="phone" name="phone" value="<?php echo $library_array['phone']; ?>" required>
             <input type="submit" value="Actualiza" name="updateLibrary">
-            <a href="indexBibliotecas.php">Volver</a>
+            <a class="btn" href="indexBibliotecas.php">Volver</a>
         </form>
     </div>
     <?php if (isset($_POST['updateLibrary'])) : ?>

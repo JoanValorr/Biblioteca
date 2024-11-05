@@ -31,7 +31,7 @@ $tituloLibro = mysqli_fetch_assoc($libro);
                 <label for="id_library">Biblioteca:</label>
                 <input type="text" id="id_library" name="id_library" value="<?php echo $tituloLibro['id_library'];?>" required>
             <input type="submit" value="Actualiza" name="updateLibrary">
-            <a href="indexLibros.php">Volver</a>
+            <a class="btn" href="indexLibros.php">Volver</a>
         </form>
     </div>
     <?php if (isset($_POST['updateBook'])) : ?>
