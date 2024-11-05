@@ -8,5 +8,5 @@ $db = 'mp07uf1';
 try {
     $conn = mysqli_connect($host, $user, $pass, $db);
 } catch (Exception $e) {
-    echo "Error al conectarse.";
+    echo "Error al Acceder a la Base de Datos.";
 }
