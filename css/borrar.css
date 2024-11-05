@@ -1,57 +1,75 @@
-/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
+    background-color: #f9f9f9;
+    margin: 0;
     padding: 20px;
 }
 
-.container {
-    max-width: 500px;
-    margin: auto;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-}
-
+/* Estilo para el encabezado de advertencia */
 h2 {
-    color: #444;
-    margin-bottom: 20px;
+    color: #d8000c;
+    text-align: center;
+    margin-top: 100px;
+    font-size: 1.5em;
+    background-color: #ffd2d2;
+    padding: 15px;
+    border-radius: 5px;
+    width: 80%;
+    margin: 50px auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Contenedor para los botones de confirmación */
 .confirmDeleteContainer {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
 }
 
-button {
-    background-color: #dc3545; /* Rojo para eliminar */
+/* Botón de volver */
+a.btn {
+    background-color: #008CBA; /* Azul */
     color: white;
-    padding: 10px;
+    padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #c82333;
-}
-
-a {
-    color: #007bff;
+    font-size: 16px;
     text-decoration: none;
-    margin-top: 10px;
+    transition: background-color 0.3s ease;
 }
 
-a:hover {
-    text-decoration: underline;
+a.btn:hover {
+    background-color: #007bb5; /* Azul oscuro */
+}
+
+/* Botón de confirmación de eliminación */
+.confirmDelete {
+    background-color: #d8000c; /* Rojo */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.confirmDelete:hover {
+    background-color: #a80000; /* Rojo oscuro */
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    h2 {
+        width: 90%;
+        font-size: 1.2em;
+    }
+    .confirmDeleteContainer {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
