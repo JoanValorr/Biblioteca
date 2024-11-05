@@ -30,8 +30,8 @@ $tituloLibro = mysqli_fetch_assoc($libro);
                 <input type="text" id="language" name="language" value="<?php echo $tituloLibro['language']; ?>" required>
                 <label for="id_library">Biblioteca:</label>
                 <input type="text" id="id_library" name="id_library" value="<?php echo $tituloLibro['id_library'];?>" required>
-            <input type="submit" value="Actualiza" name="updateLibrary">
-            <a class="btn" href="indexLibros.php">Volver</a>
+            <input type="submit" value="Actualiza" name="updateBook">
+            <a class="btn"  href="indexLibros.php">Volver</a>
         </form>
     </div>
     <?php if (isset($_POST['updateBook'])) : ?>
