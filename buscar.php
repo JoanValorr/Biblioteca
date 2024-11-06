@@ -8,6 +8,7 @@ $query = isset($_GET['query']) ? trim($_GET['query']) : '';
 if (empty($query)) :
     ?>
     <p>Por favor ingresa un nombre.</p>
+    <a class="btn" href="index.php">Volver</a>
     <?php
     exit;
 endif;
@@ -51,6 +52,7 @@ $result = $stmt->get_result();
             <?php endif; ?>
         <?php endwhile; ?>
     </ul>
+    <a class="btn" href="index.php">Volver</a>
 <?php else : ?>
     <p>No se encontraron resultados para '<?= htmlspecialchars($_GET['query']) ?>'.</p>
 <?php endif; ?>
