@@ -24,7 +24,7 @@ $resultadoLibro = mysqli_query($conn, $consultaLibro);
     <h2>Detalles de la <?php echo $array_detalle['name']?></h2>
     <p>ID: <?php echo $array_detalle['id']?></p>
     <p>Direccion: <?php echo $array_detalle['address']?></p>
-    <p>Telefono<?php echo $array_detalle['phone']?></p>
+    <p>Telefono: <?php echo $array_detalle['phone']?></p>
 
     <form action="borrarBiblioteca.php" method="POST">
         <input type="hidden" name="id" value="<?php echo $_POST['id'] ?>">
