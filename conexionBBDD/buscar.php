@@ -38,6 +38,12 @@ $resultadoLibro = mysqli_query($conn, $consultaLibro);
             <td><?php echo htmlspecialchars($row['name']); ?></td>
             <td><?php echo htmlspecialchars($row['address']); ?></td>
             <td><?php echo htmlspecialchars($row['phone']); ?></td>
+            <td>
+                <form action="bibliotecaDetalle.php" method="POST">
+                    <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']); ?>">
+                    <input class="btn" type="submit" value="Acceder">
+                </form>
+            </td>
         </tr>
     <?php endwhile; ?>
     
