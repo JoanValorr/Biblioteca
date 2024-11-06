@@ -23,7 +23,14 @@ $consultaLibro = "SELECT 'libro' AS tipo, title AS title, author AS author, isbn
 $resultadoLibro = mysqli_query($conn, $consultaLibro);
 
 ?>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Document</title>
+</head>
+<body>
 <table>
     <!-- Encabezados de tabla para Bibliotecas -->
     <?php while ($row = mysqli_fetch_array($resultadoBiblioteca)) : ?>
@@ -46,14 +53,16 @@ $resultadoLibro = mysqli_query($conn, $consultaLibro);
             <td>
                 <form action="detalleLibro.php" method="POST">
                     <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']); ?>">
-                    <input type="submit" value="Acceder">
+                    <input class="btn" type="submit" value="Acceder">
                 </form>
             </td>
         </tr>
     <?php endwhile; ?>
 </table>
-
+<a class="btn" href="index.php">Volver a pagina principal</a>
 <?php
 // Cerrar conexión
 mysqli_close($conn);
 ?>
+</body>
+</html>
