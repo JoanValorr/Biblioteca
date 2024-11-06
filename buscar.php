@@ -7,7 +7,7 @@ $query = isset($_GET['query']) ? trim($_GET['query']) : '';
 
 if (empty($query)) :
     ?>
-    <p>Por favor ingresa un nombre o ID para buscar.</p>
+    <p>Por favor ingresa un nombre.</p>
     <?php
     exit;
 endif;
