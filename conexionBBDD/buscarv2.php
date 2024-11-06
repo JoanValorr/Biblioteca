@@ -1,6 +1,6 @@
 <?php
 
-include_once 'conexionBBDD/baseDatos.php';
+include_once 'baseDatos.php';
 
 // Recibir el término de búsqueda de GET y escapar para evitar inyección SQL
 $query = isset($_GET['query']) ? $_GET['query'] : '';
@@ -44,7 +44,7 @@ $resultadoLibro = mysqli_query($conn, $consultaLibro);
             <td><?php echo htmlspecialchars($row['language']); ?></td>
             <td><?php echo htmlspecialchars($row['id_library']); ?></td>
             <td>
-                <form action="conexionBBDD/detalleLibro.php" method="POST">
+                <form action="detalleLibro.php" method="POST">
                     <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']); ?>">
                     <input type="submit" value="Acceder">
                 </form>
