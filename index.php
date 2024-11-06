@@ -15,7 +15,7 @@
         </ul>
     </nav>
     <!-- Formulario de Búsqueda -->
-    <form action="buscar.php" method="GET">
+    <form action="buscarv2.php" method="GET">
         <label for="search">Buscar libro o Biblioteca:</label>
         <input type="text" id="search" name="query" placeholder="Nombre de Libro o Biblioteca">
         <button type="submit">Buscar</button>
