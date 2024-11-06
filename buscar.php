@@ -17,11 +17,11 @@ endif;
 $query = '%' . $query . '%';
 
 // Buscar en ambas tablas según el tipo de consulta
-$sql = "SELECT 'biblioteca' AS tipo, name AS name, address AS info1, phone AS info2, '' AS info3, '' AS info4 
+$sql = "SELECT 'biblioteca' AS tipo, name AS name, address AS address, phone AS phone, '' AS info3, '' AS info4 
         FROM library 
         WHERE name LIKE ?
         UNION
-        SELECT 'libro' AS tipo, title AS name, author AS info1, isbn AS info2, language AS info3, id_library AS info4 
+        SELECT 'libro' AS tipo, title AS name, author AS author, isbn AS isbn, language AS language, id_library AS id_library 
         FROM book 
         WHERE title LIKE ?";
 
@@ -38,16 +38,16 @@ $result = $stmt->get_result();
             <?php if ($row['tipo'] === 'biblioteca') : ?>
                 <li>
                     Biblioteca: <?= htmlspecialchars($row['name']) ?> 
-                    (Dirección: <?= htmlspecialchars($row['info1']) ?>, 
-                    Teléfono: <?= htmlspecialchars($row['info2']) ?>)
+                    (Dirección: <?= htmlspecialchars($row['address']) ?>, 
+                    Teléfono: <?= htmlspecialchars($row['phone']) ?>)
                 </li>
             <?php else : ?>
                 <li>
                     Libro: <?= htmlspecialchars($row['name']) ?> 
-                    Autor: <?= htmlspecialchars($row['info1']) ?>, 
-                    ISBN: <?= htmlspecialchars($row['info2']) ?>, 
-                    Idioma: <?= htmlspecialchars($row['info3']) ?>, 
-                    Biblioteca: <?= htmlspecialchars($row['info4']) ?>
+                    Autor: <?= htmlspecialchars($row['author']) ?>, 
+                    ISBN: <?= htmlspecialchars($row['isbn']) ?>, 
+                    Idioma: <?= htmlspecialchars($row['language']) ?>, 
+                    Biblioteca: <?= htmlspecialchars($row['id_library']) ?>
                 </li>
             <?php endif; ?>
         <?php endwhile; ?>
