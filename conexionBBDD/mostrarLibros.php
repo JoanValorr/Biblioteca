@@ -1,6 +1,5 @@
 <?php
 
-
 include_once('baseDatos.php');
 
 $consultaSelect = "SELECT * FROM book WHERE id_library = '" . $_POST['id'] . "'";
