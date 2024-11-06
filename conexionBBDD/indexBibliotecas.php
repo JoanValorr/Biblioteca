@@ -34,7 +34,7 @@ $resultadoSelect = mysqli_query($conn, $consultaSelect);
     </tr>
 <?php endwhile; ?>
     </table>
-    <a class="btn" href="../index.php">Volver a pagina principal</a>
+    <a class="btn" href="index.php">Volver a pagina principal</a>
 <?php
     include_once 'creacionBibliotecas.php';
 ?>
